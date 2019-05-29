@@ -1,9 +1,10 @@
 const path = require('path');
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const indexController = require('./controllers/index-controller');
-const aboutUsController = require('./controllers/about-us-controller.js');
-
+const usersController = require('./controllers/users-controller.js');
+const wallController = require('./controllers/wall-controller.js');
 
 // SETUP EXPRESS
 const app = express();
@@ -18,10 +19,21 @@ app.use(express.static('src/static'));
 
 const port = 3000;
 
+app.use(express.json())
+app.use(function(req, res, next) {
 
+    if(!req.headers.authorization){
+        // TODO: Create authentication
+        res.set({'WWW-Authenticate': 'Basic', realm: 'myFace'})
+        res.send(401)
+    } else {
+    next();
+    }
+})
 
 indexController.register(app);
-aboutUsController.register(app);
+usersController.register(app);
+wallController.register(app);
 
 
 

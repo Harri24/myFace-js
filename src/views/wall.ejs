@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+
+    <head>
+        <title>Bookish - Wall</title>
+
+        <link rel="stylesheet" href="/styles/general.css"/>
+        <link rel="stylesheet" href="/styles/navbar.css"/>
+        <link rel="stylesheet" href="/styles/about.css"/>
+    </head>
+<script>
+function sendPost(){
+    const content = document.getElementById('postContent').value;
+    const body = {content: content};
+    console.log(body);
+    fetch('/wall/<%=userId%>/post', {credentials: 'include', headers: {'Content-Type': 'application/json'}, method: 'POST', body: JSON.stringify(body)}).then(res => {
+        console.log(res);
+    });
+}
+
+</script>
+    <body>
+
+        <% include fragments/navbar.ejs %>
+
+        <div class="container">
+            <h2>List of posts: </h2>
+
+            <div class="post-list">
+                <% posts.forEach(function(post) { %>
+                    <h3><%=post.content%></h3><br>
+                <% }); %>
+            </div>
+            New Post: <input type="text" name="content" id="postContent"><br>
+            <button onClick="sendPost()"> Send </button>
+
+        </div>
+
+    </body>
+
+
+</html>

@@ -6,10 +6,10 @@ module.exports = {
 };
 
 
-const serverName = 'localhost';
-const userName = 'root';
-const password = '';
-const databaseSchema = 'bookish';
+const serverName = 'apriltrainees.c9odsywzh0wu.us-east-2.rds.amazonaws.com';
+const userName = 'joshPowell';
+const password = 'password';
+const databaseSchema = 'myFace';
 
 
 let connection;
