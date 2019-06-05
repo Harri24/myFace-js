@@ -3,9 +3,11 @@
 <html lang="en">
     <head>
         <title>Sign Up :: My🙂Face</title>
+        <link rel="stylesheet" href="/styles/general.css"/>
     </head>
 
     <body>
+            <% include fragments/navbar.ejs %>
         <nav>
             <div class="nav-inner">
                 <a href="/" class="brand">My🙂Face</a>
@@ -18,7 +20,7 @@
             <form method="post" action="/signup">
                 <div class="form-row">
                     <label for="username_box">Username:</label>
-                    <input type="text" name="username" id="username_box"/>
+                    <input type="text" name="userName" id="username_box"/>
                 </div>
 
                 <div class="form-row">
@@ -27,9 +29,32 @@
                 </div>
 
                 <div class="form-row">
-                    <label for="fullname_box">Full Name:</label>
-                    <input type="text" name="fullName" id="fullname_box"/>
+                    <label for="firstname_box">First Name:</label>
+                    <input type="text" name="firstName" id="firstname_box"/>
                 </div>
+
+                <div class="form-row">
+                    <label for="lastname_box">Last Name:</label>
+                    <input type="text" name="lastName" id="lastname_box"/>
+                </div>
+
+                <div class="form-row">
+                    <label for="dob_box">DOB:</label>
+                    <input type="text" name="DOB" id="dob_box"/>
+                </div>
+
+                
+                <div class="form-row">
+                    <label for="email_box">Email Address:</label>
+                    <input type="email" name="email" id="email_box"/>
+                </div>
+
+                
+                <div class="form-row">
+                    <label for="gender_box">Gender:</label>
+                    <input type="text" name="gender" id="gender"/>
+                </div>
+
 
                 <input type="submit" value="Sign up!" />
             </form>
